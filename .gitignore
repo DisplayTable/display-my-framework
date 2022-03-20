@@ -7,7 +7,7 @@
 
 # development
 /public
-/screens
+/src/screens
 /src/App.js
 /src/index.js
 
