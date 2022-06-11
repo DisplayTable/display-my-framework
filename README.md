@@ -1,7 +1,7 @@
 # display-my-framework
 A minimal React JS framework to get started.
 # Usage
-- Install the framework > npm install https://github.com/DisplayTable/display-my-framework.
+- Install the framework >> npm i display-my-framework.
 - Wrap the routes / components you want to take advantage of the framework with the DMFFramework component.
 
 ```
