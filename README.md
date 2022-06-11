@@ -2,8 +2,8 @@
 A minimal React JS framework to get started.
 
 # Usage
-- Install the framework trough (npm)[https://github.com/DisplayTable/display-my-framework/packages/1475855].
-- Wrap the app or the components you want to take advantage of the framework with the DMFFramework component.
+- Install the framework trough [npm](https://github.com/DisplayTable/display-my-framework/packages/1475855).
+- Wrap the routes / components you want to take advantage of the framework with the DMFFramework component.
 
 ```
 <DMFFramework
@@ -20,7 +20,9 @@ A minimal React JS framework to get started.
 ## Properties of the framework component
 The framework accepts the following configuration properties.
 ### config
-Configuration options passed to the framework. The framework natively only supports fetch interceptors at the moment. Default value: 
+Configuration options passed to the framework. The framework natively only supports fetch interceptors at the moment. Extra properties passed it's for developers use.
+
+Default value: 
 ```
 const defaultConfig = {
     interceptors: [],
@@ -43,16 +45,24 @@ The framework has the following helper components
 ## Layout
 
 ## Store
+This component let's you create a store provider quickly.
+```
+<DMFStore reducer={() => state} initialState={{test: 123}}>
+    <ComponentWhoUsesStore>
+</DMFStore>
+```
+After that you can access that data trough the following hook:
+```
+const { state, dispatch } = useDMFStore();
+```
 # Hooks
-
-These are the hooks available to the user of the framework user
+These are the hooks available to the developer who uses the framework.
 
 ## Config
-With this 
+With this we can access the configuration options anywhere in the framework in a reliable way.
 ```
 const config = useDMFConfigProvider();
 ```
-
 ## Console
 This hook allows to print data to the console only when in development mode. The function returned accepts two parameters:
 - type. The type of log we want. Same types as native console functions.
@@ -62,18 +72,52 @@ const { log } = useConsole();
 log('error', 'This is an error');
 ```
 ## Error
+This hook allows to access the error provider data. 
 ```
-const config = useDMFConfigProvider();
+const { state, dispatch } = useDMFErrorProvider();
+```
+Default values: 
+```
+const defaultInitialState = {
+  loading: false,
+  open: false,
+  message: "",
+};
 ```
 ## Layout
+This hook allows to access the layout provider data. 
 ```
-const config = useDMFConfigProvider();
+const { state, dispatch } = useDMFLayoutProvider();
+```
+Default values:
+```
+const defaultInitialState = {
+  data: null,
+  loading: false
+};
 ```
 ## Menu
+This hook allows to access the menu provider data. 
 ```
-const config = useDMFConfigProvider();
+const { state, dispatch } = useDMFMenuProvider();
+```
+Default values:
+```
+const defaultInitialState = {
+  routes: [],
+  path: '', 
+  loading :false
+};
 ```
 ## Auth
+This hook allows to access the auth provider data. 
 ```
-const config = useDMFConfigProvider();
+const { state, dispatch } = useDMFAuthProvider();
+```
+Default values:
+```
+const defaultInitialState = {
+  token: '',
+  refreshToken: ''
+};
 ```
