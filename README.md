@@ -1,6 +1,5 @@
 # display-my-framework
 A minimal React JS framework to get started.
-
 # Usage
 - Install the framework trough [npm](https://github.com/DisplayTable/display-my-framework/packages/1475855).
 - Wrap the routes / components you want to take advantage of the framework with the DMFFramework component.
@@ -43,7 +42,18 @@ Reducer override for the menu provider.
 # Components
 The framework has the following helper components
 ## Layout
-
+This component let's you wrap components inside a wrapper that exposes layout state and dispatch trough a render prop.
+```
+<DMFLayout 
+    reducer={() => state} 
+    initialState={{test: 123}} 
+    render={
+        (state, dispatch) => <></>
+    }
+>
+    <ComponentWhoUsesStore>
+</DMFStore>
+```
 ## Store
 This component let's you create a store provider quickly.
 ```
@@ -56,8 +66,10 @@ After that you can access that data trough the following hook:
 const { state, dispatch } = useDMFStore();
 ```
 # Hooks
-These are the hooks available to the developer who uses the framework.
-
+These are the hooks available to the developer who uses the framework. All the hooks share one action to change state trough UPDATE_FIELD in the actions object.
+```
+dispatch({ type: actions.UPDATE_FIELD payload: data })
+```
 ## Config
 With this we can access the configuration options anywhere in the framework in a reliable way.
 ```
