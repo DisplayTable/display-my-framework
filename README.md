@@ -2,7 +2,7 @@
 A minimal React JS framework to get started.
 
 # Usage
-- Install the framework trough npm install @displaytable/display-my-framework@0.1.0.
+- Install the framework trough (npm)[https://github.com/DisplayTable/display-my-framework/packages/1475855].
 - Wrap the app or the components you want to take advantage of the framework with the DMFFramework component.
 
 ```
