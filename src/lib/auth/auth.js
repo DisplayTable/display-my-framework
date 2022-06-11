@@ -1,23 +1,22 @@
 import React, { useContext, useMemo, useReducer } from "react";
 import { defaultReducer } from "../utils/functions";
 
-const MenuContext = React.createContext({});
+const AuthContext = React.createContext({});
 
 const defaultInitialState = {
-  routes: [],
-  path: '', 
-  loading :false
+  token: '',
+  refreshToken: ''
 };
 
 /**
- * Menu provider implementation.
+ * Auth provider implementation.
  *
  * @param {Object} props - Component properties.
- * @param {Function} props.reducer - Override menu state.
- * @param {Object} props.initialState - Override menu reducer.
+ * @param {Function} props.reducer - Override auth state.
+ * @param {Object} props.initialState - Override auth reducer.
  * @returns {React.Component}
  */
-export const DMFMenuProvider = ({
+export const DMFAuthProvider = ({
   reducer = defaultReducer,
   initialState = defaultInitialState,
   children,
@@ -26,8 +25,8 @@ export const DMFMenuProvider = ({
   const contextValue = useMemo(() => ({ state, dispatch }), [state]);
 
   return (
-    <MenuContext.Provider value={contextValue}>{children}</MenuContext.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 };
 
-export const useDMFMenuProvider = () => useContext(MenuContext);
+export const useDMFAuthProvider = () => useContext(AuthContext);

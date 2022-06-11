@@ -1,23 +1,22 @@
 import React, { useContext, useMemo, useReducer } from "react";
 import { defaultReducer } from "../utils/functions";
 
-const MenuContext = React.createContext({});
+const LayoutContext = React.createContext({});
 
 const defaultInitialState = {
-  routes: [],
-  path: '', 
-  loading :false
+  data: null,
+  loading: false
 };
 
 /**
- * Menu provider implementation.
+ * Layout provider implementation.
  *
  * @param {Object} props - Component properties.
- * @param {Function} props.reducer - Override menu state.
- * @param {Object} props.initialState - Override menu reducer.
+ * @param {Function} props.reducer - Override layout state.
+ * @param {Object} props.initialState - Override layout reducer.
  * @returns {React.Component}
  */
-export const DMFMenuProvider = ({
+export const DMFLayoutProvider = ({
   reducer = defaultReducer,
   initialState = defaultInitialState,
   children,
@@ -26,8 +25,8 @@ export const DMFMenuProvider = ({
   const contextValue = useMemo(() => ({ state, dispatch }), [state]);
 
   return (
-    <MenuContext.Provider value={contextValue}>{children}</MenuContext.Provider>
+    <LayoutContext.Provider value={contextValue}>{children}</LayoutContext.Provider>
   );
 };
 
-export const useDMFMenuProvider = () => useContext(MenuContext);
+export const useDMFLayoutProvider = () => useContext(LayoutContext);

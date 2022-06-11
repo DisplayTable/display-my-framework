@@ -1,1 +1,1 @@
-export { default as DMFFramework } from "./Framework";
+export { DMFFramework } from "./Framework";

@@ -5,18 +5,28 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "source": "src/lib/index.js",
+  "keywords": [
+    "react",
+    "framework",
+    "web"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/DisplayTable"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "deepmerge": "^4.2.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "deepmerge": "^4.2.2"    
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
+  "author": "Display Table",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/DisplayTable/display-my-framework.git",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "start": "npm-run-all --parallel build-watch react-scripts",
     "react-scripts": "react-scripts start",
@@ -53,6 +63,11 @@
     "npm-run-all": "^4.1.5",
     "rollup": "^2.70.1",
     "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
   }
 }

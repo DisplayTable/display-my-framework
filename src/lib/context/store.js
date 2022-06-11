@@ -15,7 +15,7 @@ export const DMFStore = ({reducer = defaultReducer, initialState = defaultInitia
   const [state, dispatch] = useReducer(reducer, initialState);
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
-  return <StoreContext.Provider value={contextValue}>{children}</StoreContext.Provider>; 
+  return <StoreContext.Provider value={contextValue}>{children}</StoreContext.Provider>;  
 } 
 
 export const useDMFStore = () => useContext(StoreContext);
