@@ -1,5 +1,5 @@
 import React from "react";
-import { DMFLayoutComponent } from "../components/Layout";
+import { DMFLayoutComponent } from "./Layout";
 import { DMFLayoutProvider } from "../layout/layout";
 
 /**
