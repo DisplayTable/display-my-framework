@@ -70,6 +70,34 @@ These are the hooks available to the developer who uses the framework. All the h
 ```
 dispatch({ type: actions.UPDATE_FIELD payload: data })
 ```
+## Fetch
+Native fetch function with the posibility of adding interceptors: 
+```
+const { interceptedFetch } = useDMFInterceptedFetch();
+```
+Globally with config:
+```
+export const CONFIG = {
+    interceptors: [
+      {status: 401, callback: response => console.log("Not logged")},
+    ],    
+}
+
+```
+Or when called:
+```
+interceptedFetch(
+  ['https://run.mocky.io/v3/cd66fd73-c956-4118-a92e-1f2953ba7ba7'], 
+  [
+    {status: 401, callback: response => console.log("Not logged")},
+    {status: 200, callback: response => console.log("Todo ok")}
+  ]
+)
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+```
+
 ## Config
 With this we can access the configuration options anywhere in the framework in a reliable way.
 ```
