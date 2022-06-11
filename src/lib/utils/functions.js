@@ -1,5 +1,5 @@
 import deepmerge from "deepmerge";
-import { actions } from "../actions/actions";
+import { DMFActions } from "../actions/actions";
 
 /**
  * Default reducer function for providers.
@@ -10,7 +10,7 @@ import { actions } from "../actions/actions";
 export const defaultReducer = (state, action) => {
   const payload = action.payload || {};
   switch (action.type) {
-    case actions.UPDATE_FIELD:
+    case DMFActions.UPDATE_FIELD:
       return deepmerge(state, payload);
     default:
       return state;
