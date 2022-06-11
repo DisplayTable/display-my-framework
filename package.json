@@ -1,7 +1,7 @@
 {
-  "name": "display-my-framework",
+  "name": "@DisplayTable/display-my-framework",
   "version": "0.1.0",
-  "private": true,
+  "description": "A minimal React JS framework to get started.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "source": "src/lib/index.js",
